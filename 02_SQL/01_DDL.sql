@@ -27,7 +27,7 @@ create user 'ysjang'@'localhost' identified by '1111';
 ## 파이썬이랑 연결되는 계정
 
 -- 원격 접속 계정
-create user 'ysjang'@'%' identified by '0820';
+create user 'ysjang'@'%' identified by '1111';
 -- 등록된 사용자계정 조회
 select user, host from mysql.user;
 

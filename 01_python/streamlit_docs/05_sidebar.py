@@ -13,6 +13,8 @@ st.set_page_config(page_title="타이틀")
 
 v1 = st.sidebar.slider("X", 1, 10)
 st.write("선택된 값: ", f"**{v1}**")
+# st.sideber.write("선택된 값: ", f"**{v1}**") 하면 사이드바에 결과값이 출력됨
+
 
 v2 = st.sidebar.text_input("이름")
 st.write("이름: " + f"**{v2}**")

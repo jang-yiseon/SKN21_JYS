@@ -25,6 +25,7 @@ col12.write("## 중제목")
 col12.write("### 소제목")
 col12.write("일반글")
 
+# col2는 나눠지긴 했으나, 사용되지 않았음
 
 st.divider()
 st.title("환율")
@@ -43,15 +44,30 @@ col4.metric(label="일본JPY(100엔)", value="958.63 원", delta="-7.44 원")
 # @st.cache_data
 #   - data를 반환하는 함수에 사용
 #   - 파이썬 value, DataFrame
+# def get_txt():
+#   f = open("a.txt")
+#   return f.rean() 
+#
 # @st.cache.resource
 #   - resource를 반환하는 함수에 사용
 #   - 머신러닝/딥러닝 모델, Database 연결등
+#   * 실제 값이라기 보단, 값을 저장한 파일 등을 연결하여 데이터를 불러오도록 함.
 #  
+## def get_txt_stream():
+#   f = open("a.txt")
+#   return f
+#
+# fr = get_txt_stream
+# print(fr)
+#
+# 이런식으로 data의 위치를 저장하고 그 위치에서 데이터를 불러오는것이 resource
 # Database에 저장할 수있는 객체이면 st.cache_data, 아니면 st.cache_resource
 #########################################################
 
 # DataFrame 데이터를 제공하는 함수.
 @st.cache_data
+# data=get_data()를 실행했을 때, 처음 실행했을때만 밑의 함수를 실행하고, 그 후엔 실행하지 않음
+# (i/o 작업은 성능저하의 주 원인인데, # 그 성능저하를 막고 빠른 처리를 위해 사용함.)
 def get_data():
     print("get_data")
     df = pd.read_csv("data/boston_housing.csv")
@@ -64,4 +80,6 @@ st.title("보스톤 지역 주거지역 정보")
 btn = st.button("정보 조회")
 if btn:
     st.dataframe(data)
+else : 
+    st.write("버튼을 클릭하면 보스톤 지역 정보를 볼 수 있습니다.")
 
