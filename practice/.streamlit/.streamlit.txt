@@ -1,9 +1,0 @@
-# .streamlit/secrets.toml 파일 내용
-[connections.mysql_db]
-# 이 이름(mysql_db)을 st.connection()에서 사용합니다.
-dialect = "mysql"
-host = "127.0.0.1" # 로컬 DB 주소 또는 호스팅 서버 주소
-port = 3306
-database = "Local instance MySQL80"
-username = "ysjang"
-password = "1111"
